@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BRITTAH AGROVET</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #f4f4f9;
+      color: #333;
+      margin: 0;
+      padding-top: 120px;
+    }
+
+    h1, h2, h3 {
+      color: #2c3e50;
+      margin-top: 20px;
+    }
+
+.call-button {
+  position: fixed;
+  bottom: 90px;
+  right: 30px;
+  background-color: #28a745;
+  color: white;
+  font-size: 22px;
+  padding: 15px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  z-index: 999;
+  transition: background-color 0.3s ease;
+}
+.call-button:hover {
+  background-color: #218838;
+}
+    .product {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product:hover {
+      transform: scale(1.05);
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .product img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .product h3 {
+      font-size: 18px;
+      margin-top: 10px;
+    }
+
+    .product .stock-status {
+      font-size: 14px;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    .cart-summary {
+      padding: 15px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 10px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-size: 18px;
+      transition: background-color 0.3s ease-in-out;
+    }
+
+    button:hover {
+      background-color: #218838;
+    }
+
+    button:active {
+      transform: scale(0.98);
+    }
+
+    input {
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      padding: 12px;
+      font-size: 16px;
+      margin: 10px 0;
+    }
+
+    input:focus {
+      border-color: #28a745;
+      outline: none;
+    }
+
+    .cart {
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      padding: 20px;
+      margin-top: 30px;
+    }
+
+    .marquee {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: blue;
+      color: red;
+      font-weight: bold;
+      font-size: 24px;
+      text-align: center;
+      padding: 10px;
+      white-space: nowrap;
+      overflow: hidden;
+      z-index: 9999;
+    }
+
+    marquee {
+      animation: marqueeAnimation 10s linear infinite;
+    }
+
+    @keyframes marqueeAnimation {
+      0% {
+        transform: translateX(100%);
+      }
+      50% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+
+    .fab {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background-color: #28a745;
+      padding: 15px;
+      border-radius: 50%;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      cursor: pointer;
+    }
+
+    .fab img {
+      width: 30px;
+    }
+
+    .fab:hover {
+      background-color: #218838;
+    }
+
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+      width: 80%;
+      max-width: 400px;
+    }
+
+    .quantity-selector {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .quantity-selector button {
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+
+    .quantity-selector input {
+      width: 50px;
+      text-align: center;
+      margin: 0 10px;
+      font-size: 16px;
+    }
+     .marquee-bar {
+  background-color: #218838; /* Deep green */
+  font-size: 18px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+    .stars {
+      color: #f39c12;
+    }
+
+    .stars::before {
+      content: '★★★★★';
+    }
+.dark-mode {
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+}
+.dark-mode .product,
+.dark-mode .cart,
+.dark-mode footer,
+.dark-mode .modal-content {
+  background-color: #2b2b2b;
+  color: #f1f1f1;
+}
+.dark-mode input,
+.dark-mode button {
+  background-color: #333;
+  color: white;
+  border-color: #444;
+}
+.dark-mode .navbar {
+  background-color: #343a40 !important;
+}
+/* default light theme */
+body {
+  background-color: white;
+  color: black;
+}
+
+/* dark theme */
+body.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+.marquee-slider {
+  overflow: hidden;
+  position: relative;
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: scrollMarquee 40s linear infinite;
+  gap: 60px;
+  padding-left: 100%;
+}
+
+.marquee-track img {
+  height: 220px;
+  width: auto;
+  border-radius: 16px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+  transition: transform 0.1s ease, box-shadow 0.4s ease;
+}
+
+.marquee-track img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+@keyframes scrollMarquee {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+  </style>
+</head>
+<body>
+
+<!-- Navbar with Embedded Marquee -->
+<nav class="navbar navbar-expand-lg navbar-light bg-white shadow fixed-top flex-column p-0">
+  <!-- Top Marquee -->
+   <div class="w-100 text-center fw-bold text-light py-1 marquee-bar">
+  <marquee scrollamount="7" onmouseover="this.stop();" onmouseout="this.start();">
+    <img src="assets/logo/brittah logo.webp" alt="BRITTAH Logo" style="height: 30px; margin-right: 10px; vertical-align: middle;">
+    🎉 Welcome to <span class="text-warning">BRITTAH AGROVET</span> – Feeding Farms, Healing Livestock, Fueling Growth!
+  </marquee>
+</div>
+
+  <!-- Main Navbar -->
+  <div class="container-fluid px-4 py-2">
+    <!-- Logo + Brand -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="assets/logo/brittah logo.webp" alt="BRITTAH AGROVET" style="height: 40px; margin-right: 10px;">
+      <strong>BRITTAH AGROVET</strong>
+    </a>
+
+    <!-- Toggler for mobile -->
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+<button onclick="toggleDarkMode()" class="btn btn-outline-secondary btn-sm ms-3">
+  <i class="fas fa-moon"></i>
+</button>
+
+
+    <!-- Navbar content -->
+    <div class="collapse navbar-collapse" id="navbarMain">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <select class="form-select" id="categorySelect" onchange="filterByCategory()">
+            <option value="all">All Categories</option>
+            <option value="animal-health">Animal Health</option>
+            <option value="feeds-addictives">Feeds & Additives</option>
+            <option value="crop-protection">Crop Protection</option>
+            <option value="seeds">Seeds</option>
+            <option value="fertilizers">Fertilizers</option>
+            <option value="chemicals">Chemicals</option>
+          </select>
+        </li>
+      </ul>
+
+      <!-- Search -->
+      <form class="d-flex me-3" onsubmit="event.preventDefault(); filterProducts();">
+        <input class="form-control me-2" type="search" id="search" placeholder="Search products..." onkeyup="filterProducts()">
+        <button class="btn btn-success" type="submit">Search</button>
+      </form>
+
+      <!-- Cart Icon -->
+      <a href="#cart" onclick="document.getElementById('cart').scrollIntoView({ behavior: 'smooth' })" class="position-relative">
+  <i class="fas fa-shopping-cart fs-4 text-success"></i>
+  <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+    0
+  </span>
+</a>
+
+<!-- Find Us Button -->
+<a href="#findus" class="btn btn-outline-success btn-sm ms-2">Find Us</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Marquee Image Slider (Landscape with Styled Background) -->
+<div class="marquee-slider py-5" style="background: linear-gradient(to right, #e8f5e9, #f1f8e9);">
+  <div class="marquee-track d-flex align-items-center">
+    <img src="assets/images/Logo.jpg" alt="Albendazole" />
+    <img src="assets/images/Chicken 1.jpg" alt="Growers Mash" />
+    <img src="assets/images/Dap1.jpg" alt="Fungicide Z" />
+    <img src="assets/images/Dap2.jpg" alt="Layers Mash" />
+    <img src="assets/images/Gas1.jpeg" alt="Neem Oil" />
+    <img src="assets/images/Chicken2.jpg" alt="Dairy Meal" />
+    <img src="assets/images/Chicken3.jpg" alt="Dairy Meal" />
+    <!-- Add more landscape images -->
+  </div>
+</div>
+
+  <div id="productList">
+<!-- Products Here -->
+
+<div class="container mt-4" id="productList">
+  <div class="row"><!-- Albendazole -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Health Products" data-name="Albendazole" data-price="500" data-stock="In Stock">
+    <img src="assets/images/albendazole.jpg" alt="Albendazole">
+    <h3>Albendazole</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Albendazole')">-</button>
+      <input id="quantity-Albendazole" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Albendazole')">+</button>
+    </div>
+    <span>Price: KSh 500</span>
+    <button onclick="addToCart('Albendazole', 500, document.getElementById('quantity-Albendazole').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Multivitamins -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Health Products" data-name="Multivitamins" data-price="520" data-stock="In Stock">
+    <img src="assets/images/multivitamins.jpg" alt="Multivitamins">
+    <h3>Multivitamins</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Multivitamins')">-</button>
+      <input id="quantity-Multivitamins" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Multivitamins')">+</button>
+    </div>
+    <span>Price: KSh 520</span>
+    <button onclick="addToCart('Multivitamins', 520, document.getElementById('quantity-Multivitamins').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Additional Products -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Health Products" data-name="Dewormer" data-price="560" data-stock="In Stock">
+    <img src="assets/images/dewormer.jpg" alt="Dewormer">
+    <h3>Dewormer</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Dewormer')">-</button>
+      <input id="quantity-Dewormer" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Dewormer')">+</button>
+    </div>
+    <span>Price: KSh 560</span>
+    <button onclick="addToCart('Dewormer', 560, document.getElementById('quantity-Dewormer').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Health Products" data-name="Vitamin B Complex" data-price="580" data-stock="In Stock">
+    <img src="assets/images/vitamin_b_complex.jpg" alt="Vitamin B Complex">
+    <h3>Vitamin B Complex</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Vitamin B Complex')">-</button>
+      <input id="quantity-Vitamin-B-Complex" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Vitamin B Complex')">+</button>
+    </div>
+    <span>Price: KSh 580</span>
+    <button onclick="addToCart('Vitamin B Complex', 580, document.getElementById('quantity-Vitamin-B-Complex').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Feeds and Additives" data-name="Chick Mash" data-price="600" data-stock="In Stock">
+    <img src="assets/images/chick_mash.jpg" alt="Chick Mash">
+    <h3>Chick Mash</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Chick Mash')">-</button>
+      <input id="quantity-Chick-Mash" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Chick Mash')">+</button>
+    </div>
+    <span>Price: KSh 600</span>
+    <button onclick="addToCart('Chick Mash', 600, document.getElementById('quantity-Chick-Mash').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Feeds and Additives" data-name="Growers Mash" data-price="620" data-stock="In Stock">
+    <img src="assets/images/growers_mash.jpg" alt="Growers Mash">
+    <h3>Growers Mash</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Growers Mash')">-</button>
+      <input id="quantity-Growers-Mash" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Growers Mash')">+</button>
+    </div>
+    <span>Price: KSh 620</span>
+    <button onclick="addToCart('Growers Mash', 620, document.getElementById('quantity-Growers-Mash').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Feeds and Additives" data-name="Layers Mash" data-price="640" data-stock="In Stock">
+    <img src="assets/images/layers_mash.jpg" alt="Layers Mash">
+    <h3>Layers Mash</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Layers Mash')">-</button>
+      <input id="quantity-Layers-Mash" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Layers Mash')">+</button>
+    </div>
+    <span>Price: KSh 640</span>
+    <button onclick="addToCart('Layers Mash', 640, document.getElementById('quantity-Layers-Mash').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Feeds and Additives" data-name="Dairy Meal" data-price="660" data-stock="In Stock">
+    <img src="assets/images/dairy_meal.jpg" alt="Dairy Meal">
+    <h3>Dairy Meal</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Dairy Meal')">-</button>
+      <input id="quantity-Dairy-Meal" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Dairy Meal')">+</button>
+    </div>
+    <span>Price: KSh 660</span>
+    <button onclick="addToCart('Dairy Meal', 660, document.getElementById('quantity-Dairy-Meal').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Animal Feeds and Additives" data-name="Pig Starter" data-price="680" data-stock="In Stock">
+    <img src="assets/images/pig_starter.jpg" alt="Pig Starter">
+    <h3>Pig Starter</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Pig Starter')">-</button>
+      <input id="quantity-Pig-Starter" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Pig Starter')">+</button>
+    </div>
+    <span>Price: KSh 680</span>
+    <button onclick="addToCart('Pig Starter', 680, document.getElementById('quantity-Pig-Starter').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Crop Protection Products" data-name="Herbicide X" data-price="700" data-stock="In Stock">
+    <img src="assets/images/herbicide_x.jpg" alt="Herbicide X">
+    <h3>Herbicide X</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Herbicide X')">-</button>
+      <input id="quantity-Herbicide-X" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Herbicide X')">+</button>
+    </div>
+    <span>Price: KSh 700</span>
+    <button onclick="addToCart('Herbicide X', 700, document.getElementById('quantity-Herbicide-X').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+    <!-- (Previous 15 product cards here...) --><!-- Insecticide Y -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Crop Protection Products" data-name="Insecticide Y" data-price="720" data-stock="In Stock">
+    <img src="assets/images/insecticide_y.jpg" alt="Insecticide Y">
+    <h3>Insecticide Y</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Insecticide Y')">-</button>
+      <input id="quantity-Insecticide-Y" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Insecticide Y')">+</button>
+    </div>
+    <span>Price: KSh 720</span>
+    <button onclick="addToCart('Insecticide Y', 720, document.getElementById('quantity-Insecticide-Y').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Fungicide Z -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Crop Protection Products" data-name="Fungicide Z" data-price="740" data-stock="In Stock">
+    <img src="assets/images/fungicide_z.jpg" alt="Fungicide Z">
+    <h3>Fungicide Z</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Fungicide Z')">-</button>
+      <input id="quantity-Fungicide-Z" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Fungicide Z')">+</button>
+    </div>
+    <span>Price: KSh 740</span>
+    <button onclick="addToCart('Fungicide Z', 740, document.getElementById('quantity-Fungicide-Z').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Neem Oil -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Crop Protection Products" data-name="Neem Oil" data-price="760" data-stock="In Stock">
+    <img src="assets/images/neem_oil.jpg" alt="Neem Oil">
+    <h3>Neem Oil</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Neem Oil')">-</button>
+      <input id="quantity-Neem-Oil" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Neem Oil')">+</button>
+    </div>
+    <span>Price: KSh 760</span>
+    <button onclick="addToCart('Neem Oil', 760, document.getElementById('quantity-Neem-Oil').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Acaricide Max -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Crop Protection Products" data-name="Acaricide Max" data-price="780" data-stock="In Stock">
+    <img src="assets/images/acaricide_max.jpg" alt="Acaricide Max">
+    <h3>Acaricide Max</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Acaricide Max')">-</button>
+      <input id="quantity-Acaricide-Max" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Acaricide Max')">+</button>
+    </div>
+    <span>Price: KSh 780</span>
+    <button onclick="addToCart('Acaricide Max', 780, document.getElementById('quantity-Acaricide-Max').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Maize Hybrid -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Seeds" data-name="Maize Hybrid" data-price="800" data-stock="In Stock">
+    <img src="assets/images/maize_hybrid.jpg" alt="Maize Hybrid">
+    <h3>Maize Hybrid</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Maize Hybrid')">-</button>
+      <input id="quantity-Maize-Hybrid" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Maize Hybrid')">+</button>
+    </div>
+    <span>Price: KSh 800</span>
+    <button onclick="addToCart('Maize Hybrid', 800, document.getElementById('quantity-Maize-Hybrid').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Sorghum Seed -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Seeds" data-name="Sorghum Seed" data-price="820" data-stock="In Stock">
+    <img src="assets/images/sorghum_seed.jpg" alt="Sorghum Seed">
+    <h3>Sorghum Seed</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Sorghum Seed')">-</button>
+      <input id="quantity-Sorghum-Seed" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Sorghum Seed')">+</button>
+    </div>
+    <span>Price: KSh 820</span>
+    <button onclick="addToCart('Sorghum Seed', 820, document.getElementById('quantity-Sorghum-Seed').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Sunflower Seed -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Seeds" data-name="Sunflower Seed" data-price="840" data-stock="In Stock">
+    <img src="assets/images/sunflower_seed.jpg" alt="Sunflower Seed">
+    <h3>Sunflower Seed</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Sunflower Seed')">-</button>
+      <input id="quantity-Sunflower-Seed" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Sunflower Seed')">+</button>
+    </div>
+    <span>Price: KSh 840</span>
+    <button onclick="addToCart('Sunflower Seed', 840, document.getElementById('quantity-Sunflower-Seed').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Bean Seed -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Seeds" data-name="Bean Seed" data-price="860" data-stock="In Stock">
+    <img src="assets/images/bean_seed.jpg" alt="Bean Seed">
+    <h3>Bean Seed</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Bean Seed')">-</button>
+      <input id="quantity-Bean-Seed" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Bean Seed')">+</button>
+    </div>
+    <span>Price: KSh 860</span>
+    <button onclick="addToCart('Bean Seed', 860, document.getElementById('quantity-Bean-Seed').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Tomato Seed -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Seeds" data-name="Tomato Seed" data-price="880" data-stock="In Stock">
+    <img src="assets/images/tomato_seed.jpg" alt="Tomato Seed">
+    <h3>Tomato Seed</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Tomato Seed')">-</button>
+      <input id="quantity-Tomato-Seed" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Tomato Seed')">+</button>
+    </div>
+    <span>Price: KSh 880</span>
+    <button onclick="addToCart('Tomato Seed', 880, document.getElementById('quantity-Tomato-Seed').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+<!-- Chick Crumb -->
+<div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+  <div class="product" data-category="Seeds" data-name="Chick Crumb" data-price="880" data-stock="In Stock">
+    <img src="assets/images/tomato_seed.jpg" alt="Chick Crumb">
+    <h3>Tomato Seed</h3>
+    <p class="stock-status">In Stock</p>
+    <div class="quantity-selector">
+      <button onclick="decrementQuantity('Chick Crumb')">-</button>
+      <input id="quantity-Tomato-Seed" min="1" type="number" value="1" />
+      <button onclick="incrementQuantity('Chick Crumb')">+</button>
+    </div>
+    <span>Price: KSh 200</span>
+    <button onclick="addToCart('Tomato Seed', 200, document.getElementById('quantity-Tomato-Seed').value)">Add to Cart</button>
+    <div class="ratings"><span class="stars">★★★★☆</span></div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+  <div class='col-md-4'>
+        <div class="product" data-name="Lime" data-category="Fertilizers and Soil Conditioners" data-price="940" data-stock="In Stock"
+
+
+  <!-- Cart Section -->
+  <div class="cart" id="cart">
+    <h2>Cart</h2>
+    <ul id="cartItems"></ul>
+
+    <h3>Your Info</h3>
+    <input type="text" id="name" placeholder="Your Name">
+    <input type="text" id="phone" placeholder="Your Phone Number">
+    <input type="text" id="location" placeholder="Your Location">
+
+    <button onclick="sendOrder()">Send Order via WhatsApp</button>
+    <button onclick="sendOrderEmail()">Send Order via Email</button>
+
+    <!-- Delete Cart Button -->
+    <button onclick="deleteCart()" style="background-color: #dc3545; margin-top: 20px;">Delete Cart</button>
+  </div>
+
+  <!-- Location Section -->
+<div id="findus" class="container my-5">
+  <h2 class="text-center mb-4">Find Us</h2>
+  <div class="ratio ratio-16x9">
+    <iframe 
+      src="https://www.google.com/maps?q=Kibomet,+Kitale,+Kenya&hl=en" 
+      width="600" height="450" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+  </div>
+</div>
+</div>
+
+
+<footer class="bg-dark text-white p-4 mt-5">
+  <div class="container-fluid">
+    <div class="row">
+      
+      <!-- About Section -->
+      <div class="col-12 col-md-4 mb-4 text-center text-md-start">
+        <img src="assets/logo/brittah logo.webp" alt="BRITTAH AGROVET Logo" style="max-width: 100px;" class="mb-3">
+        <h5>About BRITTAH AGROVET</h5>
+        <p>Your trusted partner for all agricultural needs, providing quality farm inputs, veterinary products, and expert support.</p>
+      </div>
+
+      <!-- Contact Info -->
+      <div class="col-12 col-md-4 mb-4 text-center text-md-start">
+        <h5>Contact Us</h5>
+        <p><strong>Phone:</strong> +254 797 792591</p>
+        <p><strong>Email:</strong>simoncheseto415@gmail.com</p>
+        <p><strong>Location:</strong> Kitale,Kibomet,Naisambu</p>
+      </div>
+
+      <!-- Quick Links + Social -->
+      <div class="col-12 col-md-4 mb-4 text-center text-md-start">
+        <h5>Quick Links</h5>
+        <ul class="list-unstyled">
+          <li><a href="#productList" class="text-white text-decoration-none">Products</a></li>
+          <li><a href="#cart" class="text-white text-decoration-none">Cart</a></li>
+          <li><a href="#contact" class="text-white text-decoration-none">Contact</a></li>
+        </ul>
+        <div class="d-flex flex-wrap justify-content-center justify-content-md-start gap-3 mt-3">
+          <a href="#" class="text-white"><i class="bi bi-facebook"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-twitter"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-instagram"></i></a>
+        </div>
+      </div>
+
+    </div>
+
+    <hr class="border-light">
+    <div class="text-center">
+      &copy; 2025 BRITTAH AGROVET. All rights reserved.
+    </div>
+  </div>
+</footer>
+
+
+<!-- Floating Call Button -->
+<a href="tel:+254797792591" class="call-button" title="Call Us">
+  <i class="fas fa-phone-alt"></i>
+</a>
+
+<script>
+  const toggleBtn = document.getElementById('toggle-dark-mode');
+
+  toggleBtn.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    // Optional: Save preference
+    if (document.body.classList.contains('dark-mode')) {
+      localStorage.setItem('theme', 'dark');
+    } else {
+      localStorage.setItem('theme', 'light');
+    }
+  });
+
+  // Load saved theme on page load
+  window.addEventListener('DOMContentLoaded', () => {
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  });
+  </script>
+
+<script>
+
+  let cart = [];
+
+  function addToCart(product, price, quantity) {
+    const item = { product, price, quantity: parseInt(quantity) };
+    cart.push(item);
+    updateCart();
+
+    const productElement = document.querySelector('.product[data-name="' + product + '"]');
+    productElement.classList.add('added');
+    setTimeout(() => productElement.classList.remove('added'), 1000);
+  }
+
+  function updateCart() {
+    const list = document.getElementById('cartItems');
+    list.innerHTML = '';
+    let total = 0;
+    let totalItems = 0;
+
+    cart.forEach(item => {
+      const li = document.createElement('li');
+      li.textContent = `${item.product} x ${item.quantity} - KSh ${item.price * item.quantity}`;
+      list.appendChild(li);
+      total += item.price * item.quantity;
+      totalItems += item.quantity;
+    });
+
+    const totalElement = document.createElement('li');
+    totalElement.textContent = `Total Items: ${totalItems} | Total: KSh ${total}`;
+    list.appendChild(totalElement);
+
+    // Update cart badge at the top
+    const cartCount = document.getElementById('cartCount');
+    if (cartCount) {
+      cartCount.textContent = totalItems;
+    }
+
+    saveCart();
+  }
+
+  function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function loadCart() {
+    const savedCart = localStorage.getItem('cart');
+    if (savedCart) {
+      cart = JSON.parse(savedCart);
+      updateCart();
+    }
+  }
+
+  window.onload = () => {
+    loadCart();
+
+    // Restore dark mode (optional, if you do dark mode later)
+    if (localStorage.getItem('theme') === 'dark') {
+      document.body.classList.add('dark-mode');
+    }
+  };
+
+  function sendOrder() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const location = document.getElementById('location').value;
+
+    if (!name || !phone || !location) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const message = `Name: ${name}\nPhone: ${phone}\nLocation: ${location}\nOrder: ${cart.map(item => `${item.product} x ${item.quantity}`).join(', ')}`;
+    const encodedMessage = encodeURIComponent(message);
+    const phoneNumber = '254797792591';
+    window.open(`https://wa.me/${phoneNumber}?text=${encodedMessage}`, '_blank');
+
+    alert("Your order has been sent! Check your WhatsApp.");
+    cart = [];
+    updateCart();
+    showModal();
+  }
+
+  function sendOrderEmail() {
+    const name = document.getElementById('name').value;
+    const phone = document.getElementById('phone').value;
+    const location = document.getElementById('location').value;
+
+    if (!name || !phone || !location) {
+      alert("Please fill in all fields.");
+      return;
+    }
+
+    const emailSubject = "Order from BRITTAH AGROVET";
+    const emailBody = `Name: ${name}\nPhone: ${phone}\nLocation: ${location}\nOrder: ${cart.map(item => `${item.product} x ${item.quantity}`).join(', ')}`;
+    const mailtoLink = `mailto:info@britthagrovets.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+    window.location.href = mailtoLink;
+
+    alert("Your order has been sent! Check your email.");
+    cart = [];
+    updateCart();
+    showModal();
+  }
+
+  function showModal() {
+    document.getElementById('confirmationModal').style.display = 'flex';
+  }
+
+  function closeModal() {
+    document.getElementById('confirmationModal').style.display = 'none';
+  }
+
+  function filterProducts() {
+    const searchQuery = document.getElementById('search').value.toLowerCase();
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+      const productName = product.getAttribute('data-name').toLowerCase();
+      if (productName.includes(searchQuery)) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+  }
+
+  function incrementQuantity(product) {
+    const quantityInput = document.getElementById('quantity-' + product.replace(/\s+/g, '-') );
+    quantityInput.value = parseInt(quantityInput.value) + 1;
+  }
+
+  function decrementQuantity(product) {
+    const quantityInput = document.getElementById('quantity-' + product.replace(/\s+/g, '-') );
+    if (parseInt(quantityInput.value) > 1) {
+      quantityInput.value = parseInt(quantityInput.value) - 1;
+    }
+  }
+
+  function deleteCart() {
+    cart = [];
+    updateCart();
+    alert("Your cart has been deleted.");
+  }
+
+  function filterByCategory() {
+    const selectedCategory = document.getElementById('categorySelect').value;
+    const products = document.querySelectorAll('.product');
+
+    products.forEach(product => {
+      const productCategory = product.getAttribute('data-category');
+      if (selectedCategory === 'all' || productCategory === selectedCategory) {
+        product.style.display = 'block';
+      } else {
+        product.style.display = 'none';
+      }
+    });
+
+    filterProducts(); // Apply search filter too
+  }
+</script>
+
+<!-- Add below existing script: --> 
+ <script>
+    function filterByCategory() {
+      const selectedCategory = document.getElementById('categorySelect').value;
+      const products = document.querySelectorAll('.product');
+
+      products.forEach(product => {
+        const productCategory = product.getAttribute('data-category');
+        if (selectedCategory === 'all' || productCategory === selectedCategory) {
+          product.style.display = 'block';
+        } else {
+          product.style.display = 'none';
+        }
+      });
+
+      filterProducts(); // Also apply search filter
+    }
+  </script>
+
+  <!-- Bootstrap JS & Popper.js -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
